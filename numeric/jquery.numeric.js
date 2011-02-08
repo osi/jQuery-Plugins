@@ -3,7 +3,7 @@
  * Copyright (c) 2006-2010 Sam Collett (http://www.texotela.co.uk)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
- * 
+ *
  * Version 1.2
  * Demo: http://www.texotela.co.uk/code/jquery/numeric/
  *
@@ -59,7 +59,7 @@ $.fn.numeric.keypress = function(e)
 	if(key < 48 || key > 57)
 	{
 		/* '-' only allowed at start */
-		if(key == 45 && this.value.length == 0) return true;
+		if(key == 45 && (this.value.length == 0 || (this.selectionEnd - this.selectionStart) == this.value.length)) return true;
 		/* only one decimal separator allowed */
 		if(decimal && key == decimal.charCodeAt(0) && this.value.indexOf(decimal) != -1)
 		{
